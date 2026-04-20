@@ -12,6 +12,7 @@ const buildAllowedOrigins = () => [
   'http://localhost:5173',
   'http://localhost:4173',
   'http://localhost:3000',
+  'https://mighty-techx.vercel.app',
   ...(process.env.CLIENT_ORIGIN
     ? process.env.CLIENT_ORIGIN.split(',').map(o => o.trim())
     : []),
