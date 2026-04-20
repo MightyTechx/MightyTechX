@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: mightytechx
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: SMTP_USER
+        value: mightyproitsolutions@gmail.com
+      - key: SMTP_PASS
+        sync: false
+      - key: RECIPIENT_EMAIL
+        value: mightyproitsolutions@gmail.com
+      - key: CLIENT_ORIGIN
+        sync: false
+      - key: DATABASE_URL
+        value: postgresql://postgres:MightyTechX%4059836218@db.eryqjkxwxkkamtnjrgkm.supabase.co:5432/postgres?sslmode=require

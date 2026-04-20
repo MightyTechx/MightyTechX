@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#0e1628"/>
+      <stop offset="100%" stop-color="#06080f"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="64" height="64" rx="14" fill="url(#bg)"/>
+
+  <!-- Subtle top-left neon border only -->
+  <rect x="1.5" y="1.5" width="61" height="61" rx="12.5"
+        fill="none" stroke="#00d4ff" stroke-width="1.2" opacity="0.22"/>
+
+  <!-- MT — M in white, T in brand cyan, single centered block -->
+  <text x="32" y="45"
+        font-family="'Arial Black', 'Helvetica Neue', Arial, sans-serif"
+        font-size="30"
+        font-weight="900"
+        text-anchor="middle"
+        letter-spacing="-1">
+    <tspan fill="#ffffff">M</tspan><tspan fill="#00d4ff">T</tspan>
+  </text>
+
+  <!-- Thin neon underline accent -->
+  <rect x="13" y="50" width="38" height="1.8" rx="0.9" fill="#00d4ff" opacity="0.45"/>
+
+  <!-- 4-point spark — top right, mirrors logo star -->
+  <polygon points="53,9 54.1,11.9 57,13 54.1,14.1 53,17 51.9,14.1 49,13 51.9,11.9"
+           fill="#00d4ff" opacity="0.9"/>
+</svg>
