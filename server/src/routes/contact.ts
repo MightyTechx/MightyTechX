@@ -19,16 +19,24 @@ router.post('/', async (req: Request, res: Response) => {
   }
 
   try {
-    // 1. Save to DB first — always works regardless of email config
+    // 1. Save to DB
     if (pool) {
-      await pool.query(
-        `INSERT INTO contacts (name, email, phone, company, service, message)
-         VALUES ($1, $2, $3, $4, $5, $6)`,
-        [name, email, phone, company, service ?? null, message]
-      )
+      try {
+        await pool.query(
+          `INSERT INTO contacts (name, email, phone, company, service, message)
+           VALUES ($1, $2, $3, $4, $5, $6)`,
+          [name, email, phone, company, service ?? null, message]
+        )
+        console.log('Contact saved to DB')
+      } catch (dbErr) {
+        console.error('DB insert failed:', dbErr)
+        throw dbErr
+      }
+    } else {
+      console.warn('No DB pool — DATABASE_URL missing, skipping save.')
     }
 
-    // 2. Send email — attempt silently, don't fail the response if unconfigured
+    // 2. Send email — never fail the response if unconfigured
     const smtpReady =
       process.env.SMTP_PASS &&
       process.env.SMTP_PASS.length > 10 &&
@@ -46,7 +54,8 @@ router.post('/', async (req: Request, res: Response) => {
 
     res.json({ message: 'Message sent successfully!' })
   } catch (err) {
-    console.error('Contact route error:', err)
+    const msg = err instanceof Error ? err.message : String(err)
+    console.error('Contact route 500:', msg)
     res.status(500).json({ message: 'Failed to submit. Please try again later.' })
   }
 })
