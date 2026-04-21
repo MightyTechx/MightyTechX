@@ -62,8 +62,9 @@ router.get('/stats', async (req: Request, res: Response) => {
       recentReferrers:  referrers.rows,
     })
   } catch (err) {
-    console.error('Analytics query failed:', err)
-    res.status(500).json({ message: 'Failed to fetch stats' })
+    const msg = err instanceof Error ? err.message : String(err)
+    console.error('Analytics query failed:', msg)
+    res.status(500).json({ message: 'Failed to fetch stats', debug: msg })
   }
 })
 
