@@ -11,7 +11,7 @@ const app = express()
 const PORT = process.env.PORT ?? 5000
 const isDev = process.env.NODE_ENV !== 'production'
 
-const buildAllowedOrigins = () => [
+const allowedOrigins = [
   'http://localhost:5173',
   'http://localhost:4173',
   'http://localhost:3000',
@@ -21,16 +21,10 @@ const buildAllowedOrigins = () => [
     : []),
 ].filter(Boolean)
 
+console.log('Allowed origins:', allowedOrigins)
+
 const corsOptions: cors.CorsOptions = {
-  origin: (origin, cb) => {
-    const allowed = buildAllowedOrigins()
-    if (isDev || !origin || allowed.includes(origin)) {
-      cb(null, true)
-    } else {
-      console.warn(`CORS blocked: ${origin} | allowed: ${allowed.join(', ')}`)
-      cb(null, false)
-    }
-  },
+  origin: isDev ? true : allowedOrigins,
   methods: ['GET', 'POST', 'OPTIONS'],
   allowedHeaders: ['Content-Type'],
   credentials: true,
