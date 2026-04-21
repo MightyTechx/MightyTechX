@@ -1,5 +1,6 @@
 import express, { Request, Response, NextFunction } from 'express'
 import cors from 'cors'
+import compression from 'compression'
 import rateLimit from 'express-rate-limit'
 import 'dotenv/config'
 import contactRouter from './routes/contact'
@@ -33,6 +34,7 @@ const corsOptions: cors.CorsOptions = {
   credentials: true,
 }
 
+app.use(compression())
 // Must be before any routes — handles CORS preflight (OPTIONS)
 app.options('*', cors(corsOptions))
 app.use(cors(corsOptions))

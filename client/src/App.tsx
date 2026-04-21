@@ -1,3 +1,4 @@
+import { lazy, Suspense } from 'react'
 import './styles/globals.css'
 import Loader from './components/common/Loader'
 import PageWrapper from './components/layout/PageWrapper'
@@ -5,11 +6,13 @@ import Navbar from './components/layout/Navbar'
 import MobileMenu from './components/layout/MobileMenu'
 import Footer from './components/layout/Footer'
 import HeroSection from './components/sections/HeroSection'
-import AboutSection from './components/sections/AboutSection'
-import ServicesSection from './components/sections/ServicesSection'
-import ProductsSection from './components/sections/ProductsSection'
-import WhySection from './components/sections/WhySection'
-import ContactSection from './components/sections/ContactSection'
+
+// Below-fold sections are lazy-loaded — not part of the initial JS bundle
+const AboutSection    = lazy(() => import('./components/sections/AboutSection'))
+const ServicesSection = lazy(() => import('./components/sections/ServicesSection'))
+const ProductsSection = lazy(() => import('./components/sections/ProductsSection'))
+const WhySection      = lazy(() => import('./components/sections/WhySection'))
+const ContactSection  = lazy(() => import('./components/sections/ContactSection'))
 
 export default function App() {
   return (
@@ -19,11 +22,13 @@ export default function App() {
       <MobileMenu />
       <main>
         <HeroSection />
-        <AboutSection />
-        <ServicesSection />
-        <ProductsSection />
-        <WhySection />
-        <ContactSection />
+        <Suspense fallback={null}>
+          <AboutSection />
+          <ServicesSection />
+          <ProductsSection />
+          <WhySection />
+          <ContactSection />
+        </Suspense>
       </main>
       <Footer />
     </PageWrapper>

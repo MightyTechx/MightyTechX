@@ -19,15 +19,19 @@ export default defineConfig({
     },
   },
   build: {
+    target: 'esnext',
     sourcemap: false,
     rollupOptions: {
       output: {
         manualChunks: {
-          vendor:  ['react', 'react-dom'],
-          mui:     ['@mui/material', '@emotion/react', '@emotion/styled'],
-          redux:   ['@reduxjs/toolkit', 'react-redux'],
+          vendor: ['react', 'react-dom'],
+          mui:    ['@mui/material', '@mui/icons-material', '@emotion/react', '@emotion/styled'],
+          redux:  ['@reduxjs/toolkit', 'react-redux'],
         },
       },
     },
+  },
+  optimizeDeps: {
+    include: ['react', 'react-dom', '@mui/material', '@reduxjs/toolkit', 'react-redux', 'axios'],
   },
 })

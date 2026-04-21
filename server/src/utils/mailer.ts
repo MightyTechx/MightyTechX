@@ -1,23 +1,7 @@
-import nodemailer from 'nodemailer'
+import { Resend } from 'resend'
 import 'dotenv/config'
 
-const smtpReady =
-  process.env.SMTP_USER &&
-  process.env.SMTP_PASS &&
-  !process.env.SMTP_PASS.includes('your-')
-
-export const transporter = nodemailer.createTransport({
-  service: 'gmail',
-  auth: {
-    user: process.env.SMTP_USER ?? '',
-    pass: process.env.SMTP_PASS ?? '',
-  },
-})
-
-if (!smtpReady) {
-  console.warn('⚠  SMTP credentials not configured — emails will not be sent.')
-  console.warn('   Set SMTP_USER and SMTP_PASS in server/.env')
-}
+const resend = new Resend(process.env.RESEND_API_KEY)
 
 export interface MailPayload {
   name: string
@@ -47,9 +31,9 @@ export async function sendContactMail(data: MailPayload) {
     </div>
   `
 
-  await transporter.sendMail({
-    from: `"Mighty TechX Website" <${process.env.SMTP_USER}>`,
-    to: process.env.RECIPIENT_EMAIL,
+  await resend.emails.send({
+    from: 'onboarding@resend.dev',
+    to: 'mightyproitsolutions@gmail.com',
     replyTo: data.email,
     subject: `New Enquiry from ${data.name} — ${data.service || 'General'}`,
     html,

@@ -9,14 +9,17 @@ import type { RootState, AppDispatch } from '../../store'
 import type { ContactFormData } from '../../types'
 
 const SERVICE_OPTIONS = [
-  { value: 'UI / UX Design',          icon: 'fas fa-bezier-curve' },
-  { value: 'Motion & Animation',       icon: 'fas fa-film' },
-  { value: 'Web Development',          icon: 'fas fa-code' },
-  { value: 'Mobile App Development',   icon: 'fas fa-mobile-screen' },
-  { value: 'Business Strategy',        icon: 'fas fa-chess-knight' },
-  { value: 'HR Solutions',             icon: 'fas fa-users-gear' },
-  { value: 'Product Development',      icon: 'fas fa-cubes' },
-  { value: 'Other',                    icon: 'fas fa-ellipsis' },
+  { value: 'Business Strategy',           icon: 'fas fa-chess-knight' },
+  { value: 'Cloud Services',              icon: 'fas fa-cloud' },
+  { value: 'Web Development',             icon: 'fas fa-code' },
+  { value: 'Mobile App Development',      icon: 'fas fa-mobile-screen' },
+  { value: 'UI / UX Design',              icon: 'fas fa-bezier-curve' },
+  { value: 'Motion & Animation',          icon: 'fas fa-film' },
+  { value: 'Dynamics 365 F&O ERP',        icon: 'fas fa-building-columns' },
+  { value: 'HR Solutions',                icon: 'fas fa-users-gear' },
+  { value: 'Helpdesk & Technical Support', icon: 'fas fa-headset' },
+  { value: 'Product Development',         icon: 'fas fa-cubes' },
+  { value: 'Other',                       icon: 'fas fa-ellipsis' },
 ]
 
 function CustomSelect({

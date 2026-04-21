@@ -8,7 +8,15 @@ export default function Navbar() {
   const { mobileMenuOpen, scrolled } = useSelector((s: RootState) => s.nav)
 
   useEffect(() => {
-    const onScroll = () => dispatch(setScrolled(window.scrollY > 60))
+    let ticking = false
+    const onScroll = () => {
+      if (ticking) return
+      ticking = true
+      requestAnimationFrame(() => {
+        dispatch(setScrolled(window.scrollY > 60))
+        ticking = false
+      })
+    }
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [dispatch])

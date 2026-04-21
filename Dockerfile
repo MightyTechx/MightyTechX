@@ -17,5 +17,6 @@ EXPOSE 10000
 
 ENV NODE_ENV=production
 ENV PORT=10000
+ENV NODE_OPTIONS="--dns-result-order=ipv4first"
 
 CMD ["node", "dist/index.js"]

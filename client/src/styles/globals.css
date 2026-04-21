@@ -161,6 +161,7 @@ body {
     background: url('https://images.unsplash.com/photo-1534067783941-51c9c23ecefd?auto=format&fit=crop&q=80&w=2000') center/cover;
     z-index: -3;
     animation: zoomEffect 20s infinite alternate;
+    will-change: transform;
 }
 
 @keyframes zoomEffect {
@@ -186,6 +187,7 @@ body {
     z-index: -1;
     pointer-events: none;
     animation: orbFloat 12s ease-in-out infinite;
+    will-change: transform;
 }
 .orb-1 {
     width: 500px; height: 500px;
