@@ -4,6 +4,8 @@ import compression from 'compression'
 import rateLimit from 'express-rate-limit'
 import 'dotenv/config'
 import contactRouter from './routes/contact'
+import analyticsRouter from './routes/analytics'
+import { initDb } from './utils/db'
 
 const app = express()
 const PORT = process.env.PORT ?? 5000
@@ -49,6 +51,7 @@ const limiter = rateLimit({
 })
 
 app.use('/api/contact', limiter, contactRouter)
+app.use('/api/analytics', analyticsRouter)
 
 app.get('/api/health', (_req, res) => res.json({ status: 'ok', env: isDev ? 'dev' : 'prod' }))
 
@@ -57,6 +60,8 @@ app.use((err: Error, _req: Request, res: Response, _next: NextFunction) => {
   console.error('Unhandled error:', err.message)
   res.status(500).json({ message: 'Internal server error' })
 })
+
+initDb()
 
 app.listen(PORT, () => {
   console.log(`✓ Server running on http://localhost:${PORT}`)

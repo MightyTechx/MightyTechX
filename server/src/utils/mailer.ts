@@ -1,7 +1,16 @@
 import { Resend } from 'resend'
 import 'dotenv/config'
 
-const resend = new Resend(process.env.RESEND_API_KEY)
+// Lazy-init so a missing key doesn't crash the server on startup
+let _resend: Resend | null = null
+function getResend(): Resend {
+  if (!_resend) {
+    const key = process.env.RESEND_API_KEY
+    if (!key) throw new Error('RESEND_API_KEY is not set')
+    _resend = new Resend(key)
+  }
+  return _resend
+}
 
 export interface MailPayload {
   name: string
@@ -31,7 +40,7 @@ export async function sendContactMail(data: MailPayload) {
     </div>
   `
 
-  await resend.emails.send({
+  await getResend().emails.send({
     from: 'onboarding@resend.dev',
     to: 'mightyproitsolutions@gmail.com',
     replyTo: data.email,

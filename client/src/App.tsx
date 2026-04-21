@@ -1,4 +1,4 @@
-import { lazy, Suspense } from 'react'
+import { lazy, Suspense, useEffect } from 'react'
 import './styles/globals.css'
 import Loader from './components/common/Loader'
 import PageWrapper from './components/layout/PageWrapper'
@@ -14,7 +14,17 @@ const ProductsSection = lazy(() => import('./components/sections/ProductsSection
 const WhySection      = lazy(() => import('./components/sections/WhySection'))
 const ContactSection  = lazy(() => import('./components/sections/ContactSection'))
 
+const API = import.meta.env.VITE_API_URL ?? ''
+
 export default function App() {
+  useEffect(() => {
+    fetch(`${API}/api/analytics/track`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ referrer: document.referrer }),
+    }).catch(() => {})
+  }, [])
+
   return (
     <PageWrapper>
       <Loader />
