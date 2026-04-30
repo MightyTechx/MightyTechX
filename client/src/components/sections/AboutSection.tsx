@@ -14,10 +14,7 @@ export default function AboutSection() {
                 We Are <span className="gradient-text">Mighty TechX</span>
               </h2>
               <p>
-                A bold technology company born in Hyderabad, India, with a global
-                mindset. We fuse design thinking, engineering precision, and
-                strategic innovation to transform businesses of every scale — from
-                ambitious startups to established enterprises.
+                Mighty TechX Pvt Ltd delivers innovative digital solutions including web and mobile app development, cloud services, UI/UX design, Microsoft Dynamics 365, business strategy, HR solutions, motion graphics, and end-to-end IT support to help businesses scale and succeed.
               </p>
               <p>
                 Our team believes technology should feel human, powerful, and
