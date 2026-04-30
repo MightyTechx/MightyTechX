@@ -23,7 +23,7 @@ export const products: Product[] = [
     id: 3,
     icon: 'fas fa-seedling',
     badge: 'AgriTech',
-    title: 'Farmify',
+    title: 'FarmiX',
     description:
       'Precision agriculture technology that empowers farmers with AI-driven crop insights, weather analytics, and market pricing in real time.',
     tags: ['AgriTech', 'AI'],

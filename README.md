@@ -41,7 +41,7 @@ MightyTechX/
 ## Features
 
 - **Services** — UI/UX Design, Motion & Animation, Web Development, Business Strategy, Mobile Apps, HR Solutions
-- **Products** — ServiceOps, GoGaadi, Farmify, PocketPay, ClapX, Illuminate
+- **Products** — ServiceOps, GoGaadi, FarmiX, PocketPay, ClapX, Illuminate
 - **Contact Form** — submissions saved to Supabase and emailed via Gmail SMTP
 - **Rate Limiting** — 20 requests / 15 min on the contact endpoint
 - **Health Check** — `GET /api/health`

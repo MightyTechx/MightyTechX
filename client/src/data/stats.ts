@@ -4,14 +4,14 @@ export const stats: Stat[] = [
   {
     id: 1,
     icon: 'fas fa-globe',
-    target: 8,
+    target: 4,
     suffix: '+',
     label: 'Industries Served',
   },
   {
     id: 2,
     icon: 'fas fa-cubes',
-    target: 6,
+    target: 8,
     suffix: '',
     label: 'Products Built',
   },

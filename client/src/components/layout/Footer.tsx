@@ -29,19 +29,22 @@ export default function Footer() {
 
           <div className="footer-links-col">
             <h5>Services</h5>
-            <a href="#services">UI / UX Design</a>
-            <a href="#services">Motion &amp; Animation</a>
+            <a href="#services">Business Strategy</a>
+            <a href="#services">Cloud Services</a>
             <a href="#services">Web Development</a>
             <a href="#services">Mobile Apps</a>
-            <a href="#services">Business Strategy</a>
+            <a href="#services">UI / UX Design</a>
+            <a href="#services">Motion &amp; Animation</a>
+            <a href="#services">Microsoft Dynamics 365 F&O</a>
             <a href="#services">HR Solutions</a>
+            <a href="#services">Helpdesk & Technical Support</a>
           </div>
 
           <div className="footer-links-col">
             <h5>Products</h5>
             <a href="#products">ServiceOps</a>
             <a href="#products">GoGaadi</a>
-            <a href="#products">Farmify</a>
+            <a href="#products">FarmiX</a>
             <a href="#products">PocketPay</a>
             <a href="#products">ClapX</a>
             <a href="#products">Illuminate</a>
@@ -53,7 +56,7 @@ export default function Footer() {
             <p className="footer-address">
               Villa 73, Baverly Slopes,<br />
               Jalapalli Village, Balapur Mandal,<br />
-              Rangareddy Dist., Telangana 500005
+              Rangareddy Dist, Telangana 500005.
             </p>
           </div>
         </div>
