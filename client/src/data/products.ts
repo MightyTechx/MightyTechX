@@ -50,7 +50,7 @@ export const products: Product[] = [
     id: 6,
     icon: 'fas fa-solar-panel',
     badge: 'Energy Tech',
-    title: 'Illuminate',
+    title: 'InfyGen',
     description:
       'A SCADA-based monitoring platform for non-renewable energy sources — tracking real-time performance, generating daily reports, and resolving incidents with end-to-end operational visibility.',
     tags: ['SCADA', 'Energy', 'Monitoring'],
